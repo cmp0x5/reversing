@@ -67,6 +67,8 @@ strings = {
 0x6907C4: "MyTasks\\"
 }
 
-for addr, string in strings.items():
-    addr_obj = toAddr(addr)
-    setEOLComment(addr_obj, string)
+for address, decoded_str in strings.items():
+    addr = toAddr(address)
+    createLabel(addr, decoded_str.replace(' ','_'), False)
+    setEOLComment(addr, decoded_str)
+
